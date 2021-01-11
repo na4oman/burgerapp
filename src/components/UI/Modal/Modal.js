@@ -2,6 +2,7 @@ import React from 'react'
 
 import classes from './Modal.css'
 import Backdrop from '../Backdrop/Backdrop'
+import WrapperComponent from '../../../hoc/WrapperComponent/WrapperComponent'
 
 const modal = (props) => {
   // shouldComponentUpdate(nextProps, nextState) {
@@ -12,7 +13,7 @@ const modal = (props) => {
   // }
 
   return (
-    <React.Component>
+    <WrapperComponent>
       <Backdrop show={props.show} clicked={props.modalCosed} />
       <div
         className={classes.Modal}
@@ -23,7 +24,7 @@ const modal = (props) => {
       >
         {props.children}
       </div>
-    </React.Component>
+    </WrapperComponent>
   )
 }
 

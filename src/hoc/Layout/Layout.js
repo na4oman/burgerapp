@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import classes from './Layout.css'
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar'
 import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer'
+import WrapperComponent from '../WrapperComponent/WrapperComponent'
 
 const layout = ({ isAuthenticated, children }) => {
   const [showSideDrawer, setShowSideDrawer] = useState(false)
@@ -17,7 +18,7 @@ const layout = ({ isAuthenticated, children }) => {
   }
 
   return (
-    <React.Component>
+    <WrapperComponent>
       <Toolbar
         isAuth={isAuthenticated}
         drawerToggleClicked={sideDrawerToggleHandler}
@@ -28,7 +29,7 @@ const layout = ({ isAuthenticated, children }) => {
         closed={sideDrawerClosedHandler}
       />
       <main className={classes.Content}>{children}</main>
-    </React.Component>
+    </WrapperComponent>
   )
 }
 

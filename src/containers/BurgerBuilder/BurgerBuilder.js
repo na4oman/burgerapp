@@ -9,6 +9,7 @@ import axios from '../../axios-orders'
 import Spinner from '../../components/UI/Spinner/Spinner'
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
 import * as actions from '../../store/actions/index'
+import WrapperComponent from '../../hoc/WrapperComponent/WrapperComponent'
 
 const burgerBuilder = (props) => {
   const [purchasing, setPurchasing] = useState(false)
@@ -76,7 +77,7 @@ const burgerBuilder = (props) => {
 
   if (ings) {
     burger = (
-      <React.Component>
+      <WrapperComponent>
         <Burger ingredients={ings} />
         <BuildControls
           ingredientAdded={onIngredientAdded}
@@ -87,7 +88,7 @@ const burgerBuilder = (props) => {
           isAuth={isAuthenticated}
           price={price}
         />
-      </React.Component>
+      </WrapperComponent>
     )
     orderSummary = (
       <OrderSummary
@@ -100,12 +101,12 @@ const burgerBuilder = (props) => {
   }
   // { salad: true, meat: false ...}
   return (
-    <React.Component>
+    <WrapperComponent>
       <Modal show={purchasing} modalCosed={purchaseCancelHandler}>
         {orderSummary}
       </Modal>
       {burger}
-    </React.Component>
+    </WrapperComponent>
   )
 }
 
